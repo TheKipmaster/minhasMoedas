@@ -36,6 +36,10 @@ class RefundsController < ApplicationController
   end
 
   def destroy
+    @refund = Refund.find(params[:id])
+    @refund.destroy
+
+    redirect_to refunds_path
   end
 
   private
