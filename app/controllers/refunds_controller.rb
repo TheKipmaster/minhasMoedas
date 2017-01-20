@@ -8,19 +8,31 @@ class RefundsController < ApplicationController
   end
 
   def new
+    @refund = Refund.new
   end
 
   def edit
+    @refund = Refund.find(params[:id])
   end
 
   def create
     @refund = Refund.new(refund_params)
 
-    @refund.save
-    redirect_to @refund
+    if @refund.save
+      redirect_to @refund
+    else
+      render 'new'
+    end
   end
 
   def update
+    @refund = Refund.find(params[:id])
+
+    if @refund.update(refund_params)
+      redirect_to @refund
+    else
+      render 'edit'
+    end
   end
 
   def destroy
