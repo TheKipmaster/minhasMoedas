@@ -1,9 +1,10 @@
 class RefundsController < ApplicationController
   def index
+    @refunds = Refund.all
   end
 
   def show
-    @article = Refund.find(params[:id])
+    @refund = Refund.find(params[:id])
   end
 
   def new

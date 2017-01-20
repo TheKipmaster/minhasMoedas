@@ -1,0 +1,16 @@
+<h1>Listando reembolsos</h1>
+
+<table>
+  <tr>
+    <th>Valor</th>
+    <th>Descrição</th>
+  </tr>
+
+  <% @refunds.each do |refund| %>
+    <tr>
+      <td><%= refund.value %></td>
+      <td><%= refund.description %></td>
+      <td><%= link_to 'Show', refund_path(refund) %></td>
+    </tr>
+  <% end %>
+</table>
